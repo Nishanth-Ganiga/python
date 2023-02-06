@@ -1,0 +1,53 @@
+import pandas as pd
+cars_data=pd.read_csv("Toyota.csv")
+
+cars_data.head()
+
+
+2.
+cars2 =cars_data.copy()
+cars3 =cars_data.copy()
+
+
+
+cars2 = cars_data.drop(['Doors','Weight'],axis='columns')
+cars2.shape
+
+
+
+cars2.isna().sum()
+
+
+missing = cars2[cars2.isnull().any(axis=1)]
+missing
+
+
+cars2.describe()
+
+
+cars2['Age'].mean()
+
+
+#To fill NA/NAN values using the specified value
+cars2['Age'].fillna(cars2['Age'].mean(), inplace = True)
+cars2.isna().sum()
+
+
+cars2['FuelType'].value_counts()
+
+
+cars2['FuelType'].value_counts().index[0]
+cars2['FuelType'].fillna(cars2['FuelType'].value_counts().index[0], inplace = True)
+cars2['MetColor'].mode()
+
+
+cars2['MetColor'].fillna(cars2['MetColor'].mode()[0], inplace = True)
+cars2.isna().sum()
+
+
+3. 
+print(cars_data.shape)
+print(cars_data.index)
+cars_data.ndim
+
+
